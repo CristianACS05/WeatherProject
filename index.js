@@ -20,32 +20,32 @@ const {stringTime} = getTime();
 
 document.getElementById("horalocal").innerHTML = stringTime;        // Displays time
 
-let userLatitude;
+let userLatitude, userLongitude;
 
-let userLongitude;
+let userTown, userRegion, userCountry;
 
 function positionSuccess(pos) {
     console.log(pos);
+
     userLatitude = pos.coords.latitude;
     userLongitude = pos.coords.longitude;
+
+    let query = userLatitude + "," + userLongitude;
+    const requestUrl = openCageApiUrl + "?" + "key=" + openCageKey + "&q=" + query + "&pretty=1" + "&no_annotations=1";
+    console.log(requestUrl);
+
+    fetch(requestUrl)
+        .then((response) => {
+            const data = response.json;
+            return data;
+            
+    })
+        .then((data) => {
+            console.log(data);
+    });
 }
 
 navigator.geolocation.getCurrentPosition(positionSuccess);         // Obtains user's coordinates
-
-console.log(userLatitude);
-
-let query = userLatitude + "," + userLongitude;
-
-console.log(query);
-
-const requestUrl = openCageApiUrl + "?" + "key=" + openCageKey + "&q=" + query + "&pretty=1" + "&no_annotations=1";
-
-console.log(requestUrl);
-
-/*fetch(requestUrl)
-    .then(response => responsecoords.json)
-    .then(data => console.log(data))
-    .catch(error => console.error("Error: ", error)); */
 
 /*fetch(url)
     .then(response => response.json())
