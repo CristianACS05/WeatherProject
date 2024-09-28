@@ -8,11 +8,12 @@ function getTime() {            // Obtains user's time to display
     const now = new Date();
     const hours = now.getHours();
     const minutes = now.getMinutes();
+    let hoursString = String(hours).padStart(2, "0");
     let minutesString = String(minutes).padStart(2, "0");
     return {
-        hours,
+        hoursString,
         minutesString,
-        stringTime: hours + ":" + minutesString,
+        stringTime: hoursString + ":" + minutesString,
     };
 }
 
@@ -123,6 +124,10 @@ function positionSuccess(pos) {
                         }
                       }
                     document.getElementById("weatherstatus").innerHTML = getWeatherDescription(data.current.weather_code);
+                    document.getElementById("apparenttempvalue").innerHTML = data.current.apparent_temperature + " ºC";
+                    document.getElementById("humidityvalue").innerHTML = data.current.relative_humidity_2m + " %";
+                    document.getElementById("pressurevalue").innerHTML = data.current.surface_pressure + " hPa";
+                    document.getElementById("windspeedvalue").innerHTML = data.current.wind_speed_10m + " km/h";
                 })
                 .catch(error => console.error("Error: ", error))
     });
