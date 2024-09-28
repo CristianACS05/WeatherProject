@@ -43,9 +43,18 @@ nav {
 
 #main {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     margin-top: 20px;
+    justify-content: center;
+    gap: 40px;
+}
+
+#infolocal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 #localidad {
@@ -56,4 +65,33 @@ nav {
 #comunidadpais {
     margin: 5px;
     font-size: 25px;
+}
+
+#tempandstatus {
+    display: flex;
+    flex-direction: column;
+    align-items: center ;
+    justify-content: center;
+}
+
+#rest {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    gap: 100px;
+}
+
+#restvalues {
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+}
+
+#temp {
+    font-size: 20px;
+}
+
+#weatherstatus {
+    font-size: 15px;
+    padding: 15px;
 }
