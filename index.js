@@ -1,6 +1,6 @@
 console.log("Running");
 
-const url = "https://api.open-meteo.com/v1/forecast?latitude=42.4667&longitude=-2.45&hourly=temperature_2m&timezone=auto&forecast_days=1";
+const meteoApiUrl = "https://api.open-meteo.com/v1/forecast?";
 const openCageKey = "9bef2c108e834b51a76d21be45b334f0";
 const openCageApiUrl = "https://api.opencagedata.com/geocode/v1/json";
 
@@ -24,6 +24,8 @@ let userLatitude, userLongitude;
 
 let userTown, userRegion, userCountry;
 
+let userTemp;
+
 function positionSuccess(pos) {
     console.log(pos);
 
@@ -36,12 +38,32 @@ function positionSuccess(pos) {
 
     fetch(requestUrl)
         .then((response) => {
-            const data = response.json;
-            return data;
-            
+            const data = response.json();
+            return data; 
     })
         .then((data) => {
             console.log(data);
+            userTown = data.results[0].components.town;
+            userRegion = data.results[0].components.state;
+            userCountry = data.results[0].components.country;
+
+            document.getElementById("localidad").innerHTML = userTown;
+            document.getElementById("comunidadpais").innerHTML = userRegion + ", " + userCountry;
+
+            let meteoApiRequestUrl = meteoApiUrl + "latitude=" + userLatitude + "&longitude=" + userLongitude + "&current=temperature_2m" 
+
+            fetch(meteoApiRequestUrl)
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data);
+                    return data;
+                })
+                .then(data => {
+                    userTemp = data.current.temperature_2m;
+                    console.log(userTemp);
+                    document.getElementById("temp").innerHTML = Math.round(userTemp) + " ºC";
+                })
+                .catch(error => console.error("Error: ", error))
     });
 }
 
