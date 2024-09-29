@@ -44,8 +44,8 @@ function positionSuccess(pos) {
     })
         .then((data) => {
             console.log(data);
-            userTown = data.results[0].components.town;
-            userRegion = data.results[0].components.state;
+            userTown = data.results[0].components.town || data.results[0].components.city;
+            userRegion = data.results[0].components.state || data.results[0].components.county;
             userCountry = data.results[0].components.country;
 
             document.getElementById("localidad").innerHTML = userTown;
