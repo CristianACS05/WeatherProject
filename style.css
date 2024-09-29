@@ -48,6 +48,13 @@ nav {
     margin-top: 20px;
     justify-content: center;
     gap: 40px;
+    background: lightblue;
+    max-width: 350px;
+    width: 100%;
+    margin: auto;
+    margin-top: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    border-radius: 10px;
 }
 
 #infolocal {
@@ -58,13 +65,20 @@ nav {
 }
 
 #localidad {
-    margin: 10px;
-    font-size: 40px;
+    font-size: 30px;
+    margin: 0px;
+    margin-top: 5px;
 }
 
 #comunidadpais {
-    margin: 5px;
-    font-size: 25px;
+    font-size: 15px;
+    margin: 0px;
+}
+
+#horalocal {
+    margin: 0px;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 #tempandstatus {
@@ -77,21 +91,40 @@ nav {
 #rest {
     display: flex;
     justify-content: center;
-    margin: auto;
-    gap: 100px;
-}
-
-#restvalues {
-    display: flex;
-    justify-content: center;
+    margin-top: 50px;
     gap: 100px;
 }
 
 #temp {
-    font-size: 20px;
+    font-size: 40px;
+    margin: 0px;
+    margin-top: 5px;
 }
 
 #weatherstatus {
     font-size: 15px;
-    padding: 15px;
+    margin: 0px;
+    margin-bottom: 5px;
+}
+
+.currentextrainfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0px;
+}
+
+.apparenttemptext {
+    margin: 0px;
+}
+
+.currentextrainfohead {
+    margin: 2px;
+    color: rgb(95, 95, 95);
+    font-size: 16px;
+}
+
+.currentextrainfocontent {
+    margin: 2px;
+    font-size: 22px;
 }
