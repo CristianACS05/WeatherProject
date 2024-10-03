@@ -42,50 +42,35 @@ nav {
 }
 
 #main {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    margin-top: 20px;
-    justify-content: center;
-    gap: 40px;
-    background: lightblue;
-    max-width: 350px;
-    width: 100%;
-    margin: auto;
-    margin-top: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
-    border-radius: 10px;
+
 }
 
 #infolocal {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+
 }
 
 #localidad {
-    font-size: 30px;
-    margin: 0px;
-    margin-top: 5px;
+    
 }
 
 #comunidadpais {
-    font-size: 15px;
-    margin: 0px;
+    
 }
 
 #horalocal {
-    margin: 0px;
-    margin-top: 5px;
-    margin-bottom: 5px;
+   
 }
 
 #tempandstatus {
-    display: flex;
-    flex-direction: column;
-    align-items: center ;
-    justify-content: center;
+   
+}
+
+#temp {
+   
+}
+
+#weatherstatus {
+ 
 }
 
 #rest {
@@ -93,18 +78,6 @@ nav {
     justify-content: center;
     margin-top: 50px;
     gap: 100px;
-}
-
-#temp {
-    font-size: 40px;
-    margin: 0px;
-    margin-top: 5px;
-}
-
-#weatherstatus {
-    font-size: 15px;
-    margin: 0px;
-    margin-bottom: 5px;
 }
 
 .currentextrainfo {
