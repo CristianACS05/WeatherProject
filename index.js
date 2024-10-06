@@ -64,66 +64,67 @@ function positionSuccess(pos) {
                     console.log(userTemp);
                     document.getElementById("temp").innerHTML = Math.round(userTemp) + " ºC";
                     function getWeatherDescription(weatherCode) {
-                        switch (weatherCode) {
+                        switch (weatherCode) {    // weather icons obtained from https://github.com/Makin-Things/weather-icons/tree/main
                           case 0:
-                            return "Clear sky";
+                            return ["Clear sky", "https://raw.githubusercontent.com/Makin-Things/weather-icons/master/animated/clear-day.svg", "https://raw.githubusercontent.com/Makin-Things/weather-icons/master/animated/clear-night.svg"];
                           case 1:
-                            return "Mainly clear";
+                            return ["Mainly clear", "https://raw.githubusercontent.com/Makin-Things/weather-icons/master/animated/cloudy-1-day.svg", "https://raw.githubusercontent.com/Makin-Things/weather-icons/master/animated/cloudy-1-night.svg"];
                           case 2:
-                            return "Partly cloudy";
+                            return ["Partly cloudy", "https://raw.githubusercontent.com/Makin-Things/weather-icons/master/animated/cloudy-2-day.svg", "https://raw.githubusercontent.com/Makin-Things/weather-icons/master/animated/cloudy-2-night.svg"];
                           case 3:
-                            return "Overcast";
+                            return ["Overcast", "https://raw.githubusercontent.com/Makin-Things/weather-icons/master/animated/cloudy.svg", "https://raw.githubusercontent.com/Makin-Things/weather-icons/master/animated/cloudy.svg"];
                           case 45:
-                            return "Fog";
+                            return ["Fog";
                           case 48:
-                            return "Depositing Rime Fog";
+                            return ["Depositing Rime Fog";
                           case 51:
-                            return "Light drizzle";
+                            return ["Light drizzle";
                           case 53:
-                            return "Moderate drizzle";
+                            return ["Moderate drizzle";
                           case 55:
-                            return "Intense drizzle";
+                            return ["Intense drizzle";
                           case 56:
-                            return "Light freezing drizzle";
+                            return ["Light freezing drizzle";
                           case 57:
-                            return "Intense freezing drizzle";
+                            return ["Intense freezing drizzle";
                           case 61:
-                            return "Slight Rain";
+                            return ["Slight Rain";
                           case 63:
-                            return "Moderate Rain";
+                            return ["Moderate Rain";
                           case 65:
-                            return "Heavy Rain";
+                            return ["Heavy Rain";
                           case 66:
-                            return "Light Freezing Rain";
+                            return ["Light Freezing Rain";
                           case 67:
-                            return "Heavy Freezing Rain";
+                            return ["Heavy Freezing Rain";
                           case 71:
-                            return "Slight Snow Fall";
+                            return ["Slight Snow Fall";
                           case 73:
-                            return "Moderate Snow Fall";
+                            return ["Moderate Snow Fall";
                           case 75:
-                            return "Heavy Snow Fall";
+                            return ["Heavy Snow Fall";
                           case 77:
-                            return "Snow grains";
+                            return ["Snow grains";
                           case 80:
-                            return "Slight Rain Showers";
+                            return ["Slight Rain Showers";
                           case 81:
-                            return "Moderate Rain Showers";
+                            return ["Moderate Rain Showers";
                           case 82:
-                            return "Violent Rain Showers";
+                            return ["Violent Rain Showers";
                           case 85:
-                            return "Slight Snow Showers";
+                            return ["Slight Snow Showers";
                           case 86:
-                            return "Heavy Snow Showers";
+                            return ["Heavy Snow Showers";
                           case 95:
-                            return "Thunderstorm";
+                            return ["Thunderstorm";
                           case 96:
-                            return "Thunderstorm with slight hail";
+                            return ["Thunderstorm with slight hail";
                           case 99:
-                            return "Thunderstorm with heavy hail";
+                            return ["Thunderstorm with heavy hail";
                         }
                       }
-                    document.getElementById("weatherstatus").innerHTML = getWeatherDescription(data.current.weather_code);
+                    document.getElementById("weatherstatus").innerHTML = (getWeatherDescription(data.current.weather_code))[0];
+                    document.getElementById("weatherIconDisplay").src = (getWeatherDescription(data.current.weather_code))[2];
                     document.getElementById("apparenttempvalue").innerHTML = data.current.apparent_temperature + " ºC";
                     document.getElementById("humidityvalue").innerHTML = data.current.relative_humidity_2m + " %";
                     document.getElementById("pressurevalue").innerHTML = data.current.surface_pressure + " hPa";
