@@ -87,6 +87,8 @@ nav {
 }
 
 #tempandstatus {
+    display: flex;
+    flex-direction: column;
     background-color: lightblue;
     text-align: center;
     padding: 10px;
