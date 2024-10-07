@@ -74,53 +74,53 @@ function positionSuccess(pos) {
                           case 3:
                             return ["Overcast", "https://raw.githubusercontent.com/Makin-Things/weather-icons/master/animated/cloudy.svg", "https://raw.githubusercontent.com/Makin-Things/weather-icons/master/animated/cloudy.svg"];
                           case 45:
-                            return ["Fog";
+                            return ["Fog", "https://raw.githubusercontent.com/Makin-Things/weather-icons/master/animated/fog-day.svg", "https://raw.githubusercontent.com/Makin-Things/weather-icons/master/animated/fog-night.svg"];
                           case 48:
-                            return ["Depositing Rime Fog";
+                            return ["Depositing Rime Fog", "https://raw.githubusercontent.com/Makin-Things/weather-icons/master/animated/fog.svg", "https://raw.githubusercontent.com/Makin-Things/weather-icons/master/animated/fog.svg"];
                           case 51:
-                            return ["Light drizzle";
+                            return ["Light drizzle", "https://raw.githubusercontent.com/Makin-Things/weather-icons/master/animated/rainy-1-day.svg", "https://raw.githubusercontent.com/Makin-Things/weather-icons/master/animated/rainy-1-night.svg"];
                           case 53:
-                            return ["Moderate drizzle";
+                            return ["Moderate drizzle", "https://raw.githubusercontent.com/Makin-Things/weather-icons/master/animated/rainy-1-day.svg", "https://raw.githubusercontent.com/Makin-Things/weather-icons/master/animated/rainy-1-night.svg"];
                           case 55:
-                            return ["Intense drizzle";
+                            return ["Intense drizzle", "https://raw.githubusercontent.com/Makin-Things/weather-icons/master/animated/rainy-1-day.svg", "https://raw.githubusercontent.com/Makin-Things/weather-icons/master/animated/rainy-1-night.svg"];
                           case 56:
-                            return ["Light freezing drizzle";
+                            return ["Light freezing drizzle", "https://raw.githubusercontent.com/Makin-Things/weather-icons/master/animated/rainy-3-day.svg", "https://raw.githubusercontent.com/Makin-Things/weather-icons/master/animated/rainy-3-night.svg"];
                           case 57:
-                            return ["Intense freezing drizzle";
+                            return ["Intense freezing drizzle", "https://raw.githubusercontent.com/Makin-Things/weather-icons/master/animated/rain-and-sleet-mix.svg", "https://raw.githubusercontent.com/Makin-Things/weather-icons/master/animated/rain-and-sleet-mix.svg"];
                           case 61:
-                            return ["Slight Rain";
+                            return ["Slight Rain", "https://raw.githubusercontent.com/Makin-Things/weather-icons/master/animated/rainy-1.svg", "https://raw.githubusercontent.com/Makin-Things/weather-icons/master/animated/rainy-1.svg"];
                           case 63:
-                            return ["Moderate Rain";
+                            return ["Moderate Rain", "https://raw.githubusercontent.com/Makin-Things/weather-icons/master/animated/rainy-2.svg", "https://raw.githubusercontent.com/Makin-Things/weather-icons/master/animated/rainy-2.svg"];
                           case 65:
-                            return ["Heavy Rain";
+                            return ["Heavy Rain", "https://raw.githubusercontent.com/Makin-Things/weather-icons/master/animated/rainy-3.svg", "https://raw.githubusercontent.com/Makin-Things/weather-icons/master/animated/rainy-3.svg"];
                           case 66:
-                            return ["Light Freezing Rain";
+                            return ["Light Freezing Rain", "https://raw.githubusercontent.com/Makin-Things/weather-icons/master/animated/rain-and-sleet-mix.svg", "https://raw.githubusercontent.com/Makin-Things/weather-icons/master/animated/rain-and-sleet-mix.svg"];
                           case 67:
-                            return ["Heavy Freezing Rain";
+                            return ["Heavy Freezing Rain", "https://raw.githubusercontent.com/Makin-Things/weather-icons/master/animated/rain-and-sleet-mix.svg", "https://raw.githubusercontent.com/Makin-Things/weather-icons/master/animated/rain-and-sleet-mix.svg"];
                           case 71:
-                            return ["Slight Snow Fall";
+                            return ["Slight Snow Fall", "https://raw.githubusercontent.com/Makin-Things/weather-icons/master/animated/snowy-1-day.svg", "https://raw.githubusercontent.com/Makin-Things/weather-icons/master/animated/snowy-1-night.svg"];
                           case 73:
-                            return ["Moderate Snow Fall";
+                            return ["Moderate Snow Fall", "https://raw.githubusercontent.com/Makin-Things/weather-icons/master/animated/snowy-2.svg", "https://raw.githubusercontent.com/Makin-Things/weather-icons/master/animated/snowy-2.svg"];
                           case 75:
-                            return ["Heavy Snow Fall";
+                            return ["Heavy Snow Fall", "https://raw.githubusercontent.com/Makin-Things/weather-icons/master/animated/snowy-3.svg", "https://raw.githubusercontent.com/Makin-Things/weather-icons/master/animated/snowy-3.svg"];
                           case 77:
-                            return ["Snow grains";
+                            return ["Snow grains", "https://raw.githubusercontent.com/Makin-Things/weather-icons/master/animated/rain-and-snow-mix.svg", "https://raw.githubusercontent.com/Makin-Things/weather-icons/master/animated/rain-and-snow-mix.svg"];
                           case 80:
-                            return ["Slight Rain Showers";
+                            return ["Slight Rain Showers", "https://raw.githubusercontent.com/Makin-Things/weather-icons/master/animated/rainy-1.svg", "https://raw.githubusercontent.com/Makin-Things/weather-icons/master/animated/rainy-1.svg"];
                           case 81:
-                            return ["Moderate Rain Showers";
+                            return ["Moderate Rain Showers", "https://raw.githubusercontent.com/Makin-Things/weather-icons/master/animated/rainy-2.svg", "https://raw.githubusercontent.com/Makin-Things/weather-icons/master/animated/rainy-2.svg"];
                           case 82:
-                            return ["Violent Rain Showers";
+                            return ["Violent Rain Showers", "https://raw.githubusercontent.com/Makin-Things/weather-icons/master/animated/rainy-3.svg", "https://raw.githubusercontent.com/Makin-Things/weather-icons/master/animated/rainy-3.svg"];
                           case 85:
-                            return ["Slight Snow Showers";
+                            return ["Slight Snow Showers", "https://raw.githubusercontent.com/Makin-Things/weather-icons/master/animated/snowy-1-day.svg", "https://raw.githubusercontent.com/Makin-Things/weather-icons/master/animated/snowy-1-night.svg"];
                           case 86:
-                            return ["Heavy Snow Showers";
+                            return ["Heavy Snow Showers", "https://raw.githubusercontent.com/Makin-Things/weather-icons/master/animated/snowy-3.svg", "https://raw.githubusercontent.com/Makin-Things/weather-icons/master/animated/snowy-3.svg"];
                           case 95:
-                            return ["Thunderstorm";
+                            return ["Thunderstorm", "https://raw.githubusercontent.com/Makin-Things/weather-icons/master/animated/thunderstorms.svg", "https://raw.githubusercontent.com/Makin-Things/weather-icons/master/animated/thunderstorms.svg"];
                           case 96:
-                            return ["Thunderstorm with slight hail";
+                            return ["Thunderstorm with slight hail", "https://raw.githubusercontent.com/Makin-Things/weather-icons/master/animated/thunderstorms.svg", "https://raw.githubusercontent.com/Makin-Things/weather-icons/master/animated/thunderstorms.svg"];
                           case 99:
-                            return ["Thunderstorm with heavy hail";
+                            return ["Thunderstorm with heavy hail", "https://raw.githubusercontent.com/Makin-Things/weather-icons/master/animated/severe-thunderstorm.svg", "https://raw.githubusercontent.com/Makin-Things/weather-icons/master/animated/severe-thunderstorm.svg"];
                         }
                       }
                     document.getElementById("weatherstatus").innerHTML = (getWeatherDescription(data.current.weather_code))[0];
