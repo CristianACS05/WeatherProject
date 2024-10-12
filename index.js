@@ -51,7 +51,7 @@ function positionSuccess(pos) {
             document.getElementById("localidad").innerHTML = userTown;
             document.getElementById("comunidadpais").innerHTML = userRegion + ", " + userCountry;
 
-            let meteoApiRequestUrl = meteoApiUrl + "latitude=" + userLatitude + "&longitude=" + userLongitude + "&current=temperature_2m,relative_humidity_2m,apparent_temperature,weather_code,surface_pressure,wind_speed_10m"; 
+            let meteoApiRequestUrl = meteoApiUrl + "latitude=" + userLatitude + "&longitude=" + userLongitude + "&current=temperature_2m,is_day,relative_humidity_2m,apparent_temperature,weather_code,surface_pressure,wind_speed_10m"; 
 
             fetch(meteoApiRequestUrl)
                 .then(response => response.json())
@@ -123,8 +123,14 @@ function positionSuccess(pos) {
                             return ["Thunderstorm with heavy hail", "https://raw.githubusercontent.com/Makin-Things/weather-icons/master/animated/severe-thunderstorm.svg", "https://raw.githubusercontent.com/Makin-Things/weather-icons/master/animated/severe-thunderstorm.svg"];
                         }
                       }
-                    document.getElementById("weatherstatus").innerHTML = (getWeatherDescription(data.current.weather_code))[0];
-                    document.getElementById("weatherIconDisplay").src = (getWeatherDescription(data.current.weather_code))[2];
+                    document.getElementById("weatherstatus").innerHTML = (getWeatherDescription(data.current.weather_code))[0];  
+                    
+                    if (data.current.is_day == 0) {
+                      document.getElementById("weatherIconDisplay").src = (getWeatherDescription(data.current.weather_code))[2];
+                    } else {
+                      document.getElementById("weatherIconDisplay").src = (getWeatherDescription(data.current.weather_code))[1];
+                    }
+
                     document.getElementById("apparenttempvalue").innerHTML = data.current.apparent_temperature + " ºC";
                     document.getElementById("humidityvalue").innerHTML = data.current.relative_humidity_2m + " %";
                     document.getElementById("pressurevalue").innerHTML = data.current.surface_pressure + " hPa";
