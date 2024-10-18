@@ -4,7 +4,13 @@ const meteoApiUrl = "https://api.open-meteo.com/v1/forecast?";
 const openCageKey = "9bef2c108e834b51a76d21be45b334f0";
 const openCageApiUrl = "https://api.opencagedata.com/geocode/v1/json";
 
-function getTime() {            // Obtains user's time to display
+let userLatitude, userLongitude;
+let userTown, userRegion, userCountry;
+let userTemp;
+let userAdministrativeLocation = [];
+
+
+function getTime() {            // Obtains user's time
     const now = new Date();
     const hours = now.getHours();
     const minutes = now.getMinutes();
@@ -17,44 +23,51 @@ function getTime() {            // Obtains user's time to display
     };
 }
 
-const {stringTime} = getTime();     
 
-document.getElementById("horalocal").innerHTML = stringTime;        // Displays time
+const {stringTime} = getTime();    
+document.getElementById("horalocal").innerHTML = stringTime;        // Displays the time obtained through getTime()
 
-let userLatitude, userLongitude;
 
-let userTown, userRegion, userCountry;
+function fetchAdministrativePositionInfo(navigatorPos) {   // Function that handles the GeolocationPosition object from navigator, fetches OpenCage with the coordinates from navigator and inputs the data in the relevant DOM elements
+  console.log(navigatorPos);
+  userLatitude = navigatorPos.coords.latitude;
+  userLongitude = navigatorPos.coords.longitude;
 
-let userTemp;
+  let query = userLatitude + "," + userLongitude; // Build the URL for the openCage geolocalization request
+  const requestUrl = openCageApiUrl + "?" + "key=" + openCageKey + "&q=" + query + "&pretty=1" + "&no_annotations=1";
+  console.log(requestUrl);
 
-function positionSuccess(pos) {
-    console.log(pos);
+  return fetch(requestUrl)    // Fetch from the OpenCage API the previously built request URL
+    .then(
+      results => {
+        return results.json();
+      })
+    .then(data => {
+      console.log(data);
+    
+        userTown = data.results[0].components.town || data.results[0].components.city;      // Format the data, obtaining what we need and returning it
+        userRegion = data.results[0].components.state || data.results[0].components.county;
+        userCountry = data.results[0].components.country;
 
-    userLatitude = pos.coords.latitude;
-    userLongitude = pos.coords.longitude;
-
-    let query = userLatitude + "," + userLongitude;
-    const requestUrl = openCageApiUrl + "?" + "key=" + openCageKey + "&q=" + query + "&pretty=1" + "&no_annotations=1";
-    console.log(requestUrl);
-
-   fetch(requestUrl)
-        .then((response) => {
-            const data = response.json();
-            return data; 
+        document.getElementById("localidad").innerHTML = userTown;
+        document.getElementById("comunidadpais").innerHTML = userRegion + ", " + userCountry;
     })
-        .then((data) => {
-            console.log(data);
-            userTown = data.results[0].components.town || data.results[0].components.city;
-            userRegion = data.results[0].components.state || data.results[0].components.county;
-            userCountry = data.results[0].components.country;
+    
+    .catch(
+      error => {
+        console.error(error);
+      }
+    )
+}
 
-            document.getElementById("localidad").innerHTML = userTown;
-            document.getElementById("comunidadpais").innerHTML = userRegion + ", " + userCountry;
+function fetchWeather() {
+  let meteoApiRequestUrl = meteoApiUrl + "latitude=" + userLatitude + "&longitude=" + userLongitude + "&current=temperature_2m,is_day,relative_humidity_2m,apparent_temperature,weather_code,surface_pressure,wind_speed_10m"; 
 
-            let meteoApiRequestUrl = meteoApiUrl + "latitude=" + userLatitude + "&longitude=" + userLongitude + "&current=temperature_2m,is_day,relative_humidity_2m,apparent_temperature,weather_code,surface_pressure,wind_speed_10m"; 
+  return fetch(meteoApiRequestUrl)
+}
 
-            fetch(meteoApiRequestUrl)
-                .then(response => response.json())
+
+/*.then(response => response.json())
                 .then(data => {
                     console.log(data);
                     return data;
@@ -135,12 +148,10 @@ function positionSuccess(pos) {
                     document.getElementById("humidityvalue").innerHTML = data.current.relative_humidity_2m + " %";
                     document.getElementById("pressurevalue").innerHTML = data.current.surface_pressure + " hPa";
                     document.getElementById("windspeedvalue").innerHTML = data.current.wind_speed_10m + " km/h";
-                })
-                .catch(error => console.error("Error: ", error))
-    });
-}
+                })*/
 
-navigator.geolocation.getCurrentPosition(positionSuccess);         // Obtains user's coordinates
+navigator.geolocation.getCurrentPosition(fetchAdministrativePositionInfo);        // Calls getCurrentPosition method of the navigator object and if successful, call the fetchPositionInfo function with GeolocationPosition object as input parameter
+
 
 /*fetch(url)
     .then(response => response.json())
