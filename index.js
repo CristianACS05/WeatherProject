@@ -9,7 +9,6 @@ let userTown, userRegion, userCountry;
 let userTemp;
 let userAdministrativeLocation = [];
 
-
 function getTime() {            // Obtains user's time
     const now = new Date();
     const hours = now.getHours();
@@ -23,10 +22,8 @@ function getTime() {            // Obtains user's time
     };
 }
 
-
 const {stringTime} = getTime();    
 document.getElementById("horalocal").innerHTML = stringTime;        // Displays the time obtained through getTime()
-
 
 async function fetchAdministrativePositionInfo(navigatorPos) {        // Function that handles the GeolocationPosition object from navigator, fetches OpenCage with the coordinates from navigator and inputs the data in the relevant DOM elements
   userLatitude = navigatorPos.coords.latitude;
@@ -55,7 +52,6 @@ async function fetchAdministrativePositionInfo(navigatorPos) {        // Functio
       }
     )
 } 
-
 
 async function fetchWeather() {
   let meteoApiRequestUrl = meteoApiUrl + "latitude=" + userLatitude + "&longitude=" + userLongitude + "&current=temperature_2m,is_day,relative_humidity_2m,apparent_temperature,weather_code,surface_pressure,wind_speed_10m"; 
